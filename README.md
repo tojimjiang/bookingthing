@@ -45,4 +45,6 @@
 - some css files - in some cases for agility for layout, quicker to just use flexbox
 - tz support - want to lay the ground work for this, but this would need a patients api and more provider safeguards to protect userdata
     - daylight savings time since we live in the US and want to be national
+- Did go over on time (closer to 4h), but I wanted to go more towards finishing this to a presentable state than getting to get stuck on an error screen to demo.
+    - At 3hrs would have had scheduling on the patient side, but not the view on the provider side, and been more naive on scheduling/slots.
 
