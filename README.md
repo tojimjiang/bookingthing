@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# bookingthing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Get this running NOW
+1. Go to the server folder `cd server`
+2. Install dependencies `npm install`
+3. Run it NOW! `npm run dev`
 
-## Available Scripts
+### Patient entrypoint
+- http://localhost:8080
 
-In the project directory, you can run:
+### Provider entrypoint
+- http://localhost:8080/prov-register
 
-### `npm start`
+## What does this do
+- Super basic provider/patient registation (with very basic TZ support for now) - using email as a userId for now.
+    - TZ Support discussed much more later
+- Providers can submit working hours and see their working time on a calendar and their appointments on deck
+    - Provider time should start and end on the same day
+- Patients can see a list of available up coming appointments.
+- Patients can book an appointment, then see when they need to confirm an appointment by.
+- Patient data is automatically sent with the appointment since they are auth'ed.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Limits
+- User/session system is very naive. App for now just writes all 
+- Patients need to schedule their appointments.
+    - If we want providers to be able to schedule FOR patients, then TZ support needs to be further built out.
+- TZ assumes all servers are constant timezone, it works for a local machine, but a real API should be casting everything to unix timestamps and actually apply TZ transforms when booking for others.
+- Patient/Provider pages can be more responsive with polling or websockets (not implemented)
+- Basic API is very basic and very insecure and absolutely not scaleable.
+    - For example all data is in mem on an express server.
+    - Scheduling API is very not smart when it comes to scheduling.
+- Very basic logic on the front end to handle already booked times and to create time slots from provider hours.
+- No support for provider hours overnight
+- Appointments have rigid starttimes (every 15 minutes)
+- Only one appointment type
+- Missed to wrapping this up
+    - Could benefit from more error handling on the schedule path.
+- no provider license logic
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Choices
+- email for userId - would assume a real API would use some actual user management system
+- express server and memory db - basic somewhat realistic "server"
+- front end appointment slots - was in that file in the zone
+- mui/components/react-big-calender/dayjs - use tooling that already exists
+- some css files - in some cases for agility for layout, quicker to just use flexbox
+- tz support - want to lay the ground work for this, but this would need a patients api and more provider safeguards to protect userdata
+    - daylight savings time since we live in the US and want to be national
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

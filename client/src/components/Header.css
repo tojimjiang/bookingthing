@@ -1,0 +1,20 @@
+.registerHeader, .patientHeader, .providerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 2em;
+  font-size: calc(2em);
+  color: white;
+}
+
+.registerHeader {
+  background-color: #181c24;
+}
+
+.patientHeader {
+  background-color: #282c34;
+}
+
+.providerHeader {
+  background-color: #184c30;
+}

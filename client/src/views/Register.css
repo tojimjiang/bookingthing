@@ -1,0 +1,10 @@
+.register-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: auto;
+}
+
+.register-wrapper h2 {
+  text-align: center;
+}

@@ -1,0 +1,22 @@
+.patient_app_section {
+    width: 47.5vw;
+    height: 100%;
+}
+
+.patient_app_section_title {
+    text-align: center;
+}
+
+.patient_app_section_inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.patient-appointment-slot {
+    max-width: 400px;
+}
+
+.patient-appointment {
+    
+}
